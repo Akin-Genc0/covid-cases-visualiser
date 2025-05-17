@@ -2,6 +2,8 @@ const countryInput = document.querySelector('#country');
 const addBtn = document.querySelector('#add');
 
 
+let countryData = [];
+
 async function getData(){
 
 try{
@@ -16,13 +18,22 @@ if(!resp.ok){
 const data = await resp.json();
 console.log(data);
 
+
+const conName = data.country;
+const cases = data.cases;
+
+let obj =  {
+    country: conName,
+    case: cases
+}
+
+countryData.push(obj);
+console.log(countryData)
 } catch(error) {
     console.error(error);
     
 }
-}
-
-
+    }
 
 
 addBtn.addEventListener('click', function(){
