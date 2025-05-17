@@ -4,6 +4,16 @@ const addBtn = document.querySelector('#add');
 
 let countryData = [];
 
+function vaild(){
+    if(countryInput.value === ""){
+        alert("Enter value");
+    }else {
+        return true;
+    }
+}
+
+
+
 async function getData(){
 
 try{
@@ -38,6 +48,8 @@ console.log(countryData)
 
 addBtn.addEventListener('click', function(){
 
-getData();
+    if(!vaild()) return;
+    
+    getData();
 
 });
