@@ -19,6 +19,8 @@ async function getData() {
     const countryName = countryInput.value.toLowerCase();
     const resp = await fetch(`https://disease.sh/v3/covid-19/countries/${countryName}`);
 
+    countryInput.value = "";
+    
     if (!resp.ok) {
       throw new Error("Not found");
     }
